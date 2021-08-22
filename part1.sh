@@ -8,7 +8,7 @@ echo -ne 'Updating Files and installing dependencies [##                     ](5
 sleep 1
 {
   sudo apt update
-} 
+}
 echo -ne 'Updating Files and installing dependencies [#####                  ](18%)\r'
 sleep 1
 {
@@ -24,18 +24,21 @@ echo -ne '\n'
 
 echo -ne 'Cloning Files & Installing requirements [##                     ](2%)\r'
 sleep 1
-
 {
-  cd /opt
+  cd /opt/
   sudo git clone https://github.com/openstack/python-swiftclient.git
 } &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [###                    ](5%)\r'
 sleep 1
 {
   cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install; cd-
-  sudo git clone https://github.com/openstack/swift.git
-}&> log_files.log
-echo -ne 'Cloning Files & Installing requirements [######                 ](25%)\r'
+} &> log_files.log
+echo -ne 'Cloning Files & Installing requirements [#######                ](35%)\r'
+sleep 1
+{
+sudo git clone https://github.com/openstack/swift.git
+} &> log_files.log
+echo -ne 'Cloning Files & Installing requirements [#########              ](65%)\r'
 sleep 3
 cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
 } &> log_files.log

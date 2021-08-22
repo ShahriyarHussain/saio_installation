@@ -24,19 +24,24 @@ echo -ne '\n'
 
 echo -ne 'Cloning Files & Installing requirements [##                     ](2%)\r'
 sleep 1
-
 {
-  cd /opt
+  cd /opt/
   sudo git clone https://github.com/openstack/python-swiftclient.git
 } &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [###                    ](5%)\r'
 sleep 1
 {
   cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install; cd-
+} &> log_files.log
+echo -ne 'Cloning Files & Installing requirements [#######                ](35%)\r'
+sleep 1
+{
+  cd /opt/
   sudo git clone https://github.com/openstack/swift.git
-}&> log_files.log
-echo -ne 'Cloning Files & Installing requirements [######                 ](25%)\r'
+} &> log_files.log
+echo -ne 'Cloning Files & Installing requirements [#########              ](65%)\r'
 sleep 3
+{
 cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
 } &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [#######################](100%)\r'
@@ -48,13 +53,13 @@ echo -ne 'Copying .conf files [######                 ](32%)\r'
 sleep 1
 {
 sudo mkdir -p /etc/swift
-cd /opt/swift/etc
-sudo cp /opt/swift/etcaccount-server.conf-sample /etc/swift/account-server.conf
-sudo cp /opt/swift/etccontainer-server.conf-sample /etc/swift/container-server.conf
-sudo cp /opt/swift/etcobject-server.conf-sample /etc/swift/object-server.conf
-sudo cp /opt/swift/etcproxy-server.conf-sample /etc/swift/proxy-server.conf
-sudo cp /opt/swift/etcdrive-audit.conf-sample /etc/swift/drive-audit.conf
-sudo cp /opt/swift/etcswift.conf-sample /etc/swift/swift.conf
+sudo cd /opt/swift/etc
+sudo cp /opt/swift/etc/account-server.conf-sample /etc/swift/account-server.conf
+sudo cp /opt/swift/etc/container-server.conf-sample /etc/swift/container-server.conf
+sudo cp /opt/swift/etc/object-server.conf-sample /etc/swift/object-server.conf
+sudo cp /opt/swift/etc/proxy-server.conf-sample /etc/swift/proxy-server.conf
+sudo cp /opt/swift/etc/drive-audit.conf-sample /etc/swift/drive-audit.conf
+sudo cp /opt/swift/etc/swift.conf-sample /etc/swift/swift.conf
 } &> log_files.log
 echo -ne 'Copying .conf files [#######################](100%)\r'
 echo -ne '\n'
@@ -63,9 +68,9 @@ echo -ne 'Mounting Drives and Creating Startup script [#                      ](
 sleep 1
 
 {
-  sudo mkfs.xfs -f -L d1 /dev/vda
-  sudo mkfs.xfs -f -L d2 /dev/vdb
-  sudo mkfs.xfs -f -L d3 /dev/vdc
+  sudo mkfs.xfs -f -L d1 /dev/vdb
+  sudo mkfs.xfs -f -L d2 /dev/vdc
+  sudo mkfs.xfs -f -L d3 /dev/vdd
 
   sudo mkdir -p /srv/node/d1
   sudo mkdir -p /srv/node/d2
@@ -73,6 +78,8 @@ sleep 1
 } &> log_files.log
 echo -ne 'Mounting Drives and Creating Startup script [########               ](42%)\r'
 sleep 1
+
+
 {
   sudo useradd swift
   sudo chown -R swift:swift /srv/node
@@ -89,8 +96,9 @@ echo -ne 'Mounting Drives and Creating Startup script [#######################](
 echo -ne '\n'
 
 echo "Device Needs Reboot to continue further"
-echo -ne './r'
+echo -ne ' /r'
 sleep 3
+
 
 for n in {1..20}
 do
@@ -105,5 +113,5 @@ do
   fi
 done
 
-sudo touch temp.txt && sudo echo "reboot" >> temp.txt
+sudo echo "reboot" >> $HOME/saio_installer/temp.txt
 sudo reboot

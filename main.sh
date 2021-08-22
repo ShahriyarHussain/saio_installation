@@ -1,7 +1,8 @@
 #!/bin/bash
-sudo touch temp.txt
+sudo echo ""
+sudo touch temp.txt &> /dev/null
 if [ `cat temp.txt | tail -1` == "reboot" ]
 then
-  bash part2.sh
-else bash part1.sh
+  sudo bash part2.sh
+else sudo bash part1.sh
 fi

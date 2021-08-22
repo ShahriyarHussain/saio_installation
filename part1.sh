@@ -2,6 +2,7 @@
 
 sudo echo ""
 sudo touch log_files.log
+sudo chmod 777 log_files.log
 
 echo -ne 'Updating Files and installing dependencies [##                     ](5%)\r'
 sleep 1

@@ -52,12 +52,12 @@ sudo apt install python3-coverage python3-dev python3-nose python3-xattr python3
 # echo -ne 'Cloning Files & Installing requirements [#######################](100%)\r'
 # echo -ne '\n'
 
-sudo cd /opt/
+cd /opt/
 sudo git clone https://github.com/openstack/python-swiftclient.git
-sudo cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install
-sudo cd /opt/
+cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install
+cd /opt/
 sudo git clone https://github.com/openstack/swift.git
-sudo cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
+cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
 
 # echo -ne 'Copying .conf files [####                   ](8%)\r'
 # sleep 1

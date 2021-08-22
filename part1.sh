@@ -12,12 +12,12 @@ sleep 1
 echo -ne 'Updating Files and installing dependencies [#####                  ](18%)\r'
 sleep 1
 {
-  sudo apt install -y curl gcc memcached rsync sqlite3 xfsprogs git-core libffi-dev python3-setuptools liberasurecode-dev libssl-dev
+  sudo apt install curl gcc memcached rsync sqlite3 xfsprogs git-core libffi-dev python3-setuptools liberasurecode-dev libssl-dev -y
 } &> log_files.log
 echo -ne 'Updating Files and installing dependencies [##########             ](67%)\r'
 sleep 1
 {
-  sudo apt install -y python3-coverage python3-dev python3-nose python3-xattr python3-eventlet python3-greenlet python3-pastedeploy python3-netifaces python3-pip python3-dnspython python3-mock
+  sudo apt install python3-coverage python3-dev python3-nose python3-xattr python3-eventlet python3-greenlet python3-pastedeploy python3-netifaces python3-pip python3-dnspython python3-mock -y
 } &> log_files.log
 echo -ne 'Updating Files and installing dependencies [#######################](100%)\r'
 echo -ne '\n'

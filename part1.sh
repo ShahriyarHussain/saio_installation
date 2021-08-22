@@ -7,25 +7,38 @@ sudo chmod 777 log_files.log
 echo -ne 'Updating Files and installing dependencies [##                     ](5%)\r'
 sleep 1
 {
-sudo apt update
-sudo apt install curl gcc memcached rsync sqlite3 xfsprogs git-core libffi-dev python3-setuptools liberasurecode-dev libssl-dev
-sudo apt install python3-coverage python3-dev python3-nose python3-xattr python3-eventlet python3-greenlet python3-pastedeploy python3-netifaces python3-pip python3-dnspython python3-mock
+  sudo apt update
+} &> log_files.log
+echo -ne 'Updating Files and installing dependencies [#####                  ](18%)\r'
+sleep 1
+{
+  sudo apt install curl gcc memcached rsync sqlite3 xfsprogs git-core libffi-dev python3-setuptools liberasurecode-dev libssl-dev
+} &> log_files.log
+echo -ne 'Updating Files and installing dependencies [##########             ](67%)\r'
+sleep 1
+{
+  sudo apt install python3-coverage python3-dev python3-nose python3-xattr python3-eventlet python3-greenlet python3-pastedeploy python3-netifaces python3-pip python3-dnspython python3-mock
 } &> log_files.log
 echo -ne 'Updating Files and installing dependencies [#######################](100%)\r'
 echo -ne '\n'
 
 echo -ne 'Cloning Files & Installing requirements [##                     ](2%)\r'
 sleep 1
-echo -ne 'Cloning Files & Installing requirements [###                    ](5%)\r'
+
 {
-cd /opt
-sudo git clone https://github.com/openstack/python-swiftclient.git
-cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install; cd-
-sudo git clone https://github.com/openstack/swift.git
-cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
+  cd /opt
+  sudo git clone https://github.com/openstack/python-swiftclient.git
 } &> log_files.log
+echo -ne 'Cloning Files & Installing requirements [###                    ](5%)\r'
+sleep 1
+{
+  cd /opt/python-swiftclient; sudo pip3 install -r requirements.txt; python3 setup.py install; cd-
+  sudo git clone https://github.com/openstack/swift.git
+}&> log_files.log
 echo -ne 'Cloning Files & Installing requirements [######                 ](25%)\r'
 sleep 3
+cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
+} &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [#######################](100%)\r'
 echo -ne '\n'
 
@@ -48,8 +61,7 @@ echo -ne '\n'
 
 echo -ne 'Mounting Drives and Creating Startup script [#                      ](1%)\r'
 sleep 1
-echo -ne 'Mounting Drives and Creating Startup script [########               ](42%)\r'
-sleep 1
+
 {
   sudo mkfs.xfs -f -L d1 /dev/vda
   sudo mkfs.xfs -f -L d2 /dev/vdb
@@ -58,8 +70,10 @@ sleep 1
   sudo mkdir -p /srv/node/d1
   sudo mkdir -p /srv/node/d2
   sudo mkdir -p /srv/node/d3
-
-
+} &> log_files.log
+echo -ne 'Mounting Drives and Creating Startup script [########               ](42%)\r'
+sleep 1
+{
   sudo useradd swift
   sudo chown -R swift:swift /srv/node
 

@@ -36,10 +36,12 @@ sleep 1
 echo -ne 'Cloning Files & Installing requirements [#######                ](35%)\r'
 sleep 1
 {
-sudo git clone https://github.com/openstack/swift.git
+  cd /opt/
+  sudo git clone https://github.com/openstack/swift.git
 } &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [#########              ](65%)\r'
 sleep 3
+{
 cd /opt/swift; sudo pip3 install -r requirements.txt; sudo python3 setup.py install; cd -
 } &> log_files.log
 echo -ne 'Cloning Files & Installing requirements [#######################](100%)\r'

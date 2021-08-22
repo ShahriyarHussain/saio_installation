@@ -68,6 +68,7 @@ echo -ne 'Mounting Drives and Creating Startup script [#                      ](
 sleep 1
 
 {
+
   sudo mkfs.xfs -f -L d1 /dev/vdb
   sudo mkfs.xfs -f -L d2 /dev/vdc
   sudo mkfs.xfs -f -L d3 /dev/vdd
@@ -84,8 +85,8 @@ sleep 1
   sudo useradd swift
   sudo chown -R swift:swift /srv/node
 
-  sudo cp /opt/saio_installer/mount_devices.sh /opt/swift/bin/mount_devices.sh
-  sudo cp /opt/saio_installer/start_swift.service /etc/systemd/system/start_swift.service
+  sudo cp /opt/saio_installation/mount_devices.sh /opt/swift/bin/mount_devices.sh
+  sudo cp /opt/saio_installation/start_swift.service /etc/systemd/system/start_swift.service
   sudo chmod +x /opt/swift/bin/mount_devices.sh
 
   sudo systemctl restart start_swift.service
@@ -114,5 +115,5 @@ do
   fi
 done
 
-sudo echo "reboot" >> $HOME/saio_installer/temp.txt
+sudo echo "reboot" >> $HOME/saio_installation/temp.txt
 sudo reboot

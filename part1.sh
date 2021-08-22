@@ -88,9 +88,10 @@ sleep 1
   sudo cp /opt/saio_installer/start_swift.service /etc/systemd/system/start_swift.service
   sudo chmod +x /opt/swift/bin/mount_devices.sh
 
-  sudo systemctl start start_swift.service
-  sudo systemctl enable start_swift.service
   sudo systemctl restart start_swift.service
+  sudo systemctl enable start_swift.service
+  sudo systemctl start start_swift.service
+
 } &> log_files.log
 echo -ne 'Mounting Drives and Creating Startup script [#######################](100%)\r'
 echo -ne '\n'

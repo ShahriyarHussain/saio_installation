@@ -1,5 +1,5 @@
 #!/bin/bash
-
+bash $HOME/saio_installer/mount_devices.sh
 sudo echo ""
 echo "WARNING: ENTER VALUES APPROPRIATELY, THERE ARE NO ERROR CHECKINGS"
 echo "Recommeded values are, part_power=3, replication=3, min_hour=1"

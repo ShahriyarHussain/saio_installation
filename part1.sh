@@ -66,9 +66,9 @@ echo -ne 'Mounting Drives and Creating Startup script [#                      ](
 sleep 1
 
 {
-  sudo mkfs.xfs -f -L d1 /dev/vda
-  sudo mkfs.xfs -f -L d2 /dev/vdb
-  sudo mkfs.xfs -f -L d3 /dev/vdc
+  sudo mkfs.xfs -f -L d1 /dev/vdb
+  sudo mkfs.xfs -f -L d2 /dev/vdc
+  sudo mkfs.xfs -f -L d3 /dev/vdd
 
   sudo mkdir -p /srv/node/d1
   sudo mkdir -p /srv/node/d2

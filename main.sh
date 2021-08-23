@@ -1,9 +1,10 @@
 #!/bin/bash
 
 sudo echo ""
-sudo touch log_files.log
-sudo chmod 777 log_files.log
 dir=$(pwd)
+sudo touch log_files.log
+sudo chmod 777 $dir/log_files.log
+
 
 echo -ne 'Updating Files and installing dependencies [##                     ](5%)\r'
 sleep 1
@@ -221,7 +222,7 @@ do
     sleep 0.2
   fi
 done
-
+sudo chmod 755 $dir/log_files.log
 for n in {1..20}
 do
   # echo $n

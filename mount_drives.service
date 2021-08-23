@@ -2,7 +2,7 @@
 Description=Mount swift drives at startup
 
 [Service]
-ExecStart=/opt/swift/bin/mount_devices.sh
+ExecStart=/opt/swift/bin/mount_drives.sh
 
 [Install]
 WantedBy=multi-user.target

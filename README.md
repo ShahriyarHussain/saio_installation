@@ -1,6 +1,6 @@
 # OpenStack Swift All In One Installer
 
-This repository contains Swift All In One Installer script. It rigorously tested on **Ubuntu 20.04 LTS** using **python3**. Expected to work on both **Ubuntu 18.04 LTS** and **Ubuntu 21.04**
+This repository contains Swift All In One Installer script. It is an unannounced fork of the repository: https://github.com/o-julfikar/cloud. It is rigorously tested on **Ubuntu 20.04 LTS** using **python3**. Expected to work on both **Ubuntu 18.04 LTS** and **Ubuntu 21.04**
 
 ## Installation Procedure
 1. Clone the repository

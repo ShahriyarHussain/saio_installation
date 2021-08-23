@@ -4,5 +4,7 @@ This repository contains Swift All In One Installer script. It rigorously tested
 
 ## Installation Procedure
 1. Clone the repository
-2. Switch to repo folder using `cd`. i.e `cd saio_installation`
-3. Run the `main.sh` with admin permission file. i.e.: `sudo bash main.sh`
+2. If your VM has SATA Drives, run `git checkout sda`
+3. If you don't know the drives, run `ls /sys/block`. If you see `vda,vdb,vdc....` then no need to check. If you see `sda,sdb,sdc....` then checkout.
+4. Switch to repo folder using `cd`. i.e `cd saio_installation`
+5. Run the `main.sh` with admin permission file. i.e.: `sudo bash main.sh`

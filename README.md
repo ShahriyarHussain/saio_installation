@@ -1,5 +1,7 @@
 # OpenStack Swift All In One Installer
 
+**[**OpenStack Swift**](https://github.com/openstack/swift) is a distributed object storage system designed to scale from a single machine to thousands of servers. Swift is optimized for multi-tenancy and high concurrency.**
+
 This repository contains Swift All In One Installer script. It is an unofficial fork of the repository: https://github.com/o-julfikar/cloud and heavily modified from the original one. It is rigorously tested on **Ubuntu 20.04 LTS** using **python3**. Expected to work on both **Ubuntu 18.04 LTS** and **Ubuntu 21.04**
 
 ## Installation Procedure

@@ -32,21 +32,21 @@ sleep 1
   sudo swift-ring-builder object-2.builder add r1z1-127.0.0.1:6000/d1 100
 
   # echo Adding device 1...
-  sudo swift-ring-builder account.builder add r1z2-127.0.0.2:6012/d2 100
-  sudo swift-ring-builder container.builder add r1z2-127.0.0.2:6011/d2 100
-  sudo swift-ring-builder object.builder add r1z2-127.0.0.2:6010/d2 100
-  sudo swift-ring-builder object-1.builder add r1z2-127.0.0.2:6010/d2 100
-  sudo swift-ring-builder object-2.builder add r1z2-127.0.0.2:6010/d2 100
+  sudo swift-ring-builder account.builder add r1z2-127.0.0.2:6002/d2 100
+  sudo swift-ring-builder container.builder add r1z2-127.0.0.2:6001/d2 100
+  sudo swift-ring-builder object.builder add r1z2-127.0.0.2:6000/d2 100
+  sudo swift-ring-builder object-1.builder add r1z2-127.0.0.2:6000/d2 100
+  sudo swift-ring-builder object-2.builder add r1z2-127.0.0.2:6000/d2 100
 } &> /dev/null
 echo -ne 'Creating Builder files and adding devices [##########             ](45%)\r'
 sleep 1
 {
   # echo Adding device 1...
-  sudo swift-ring-builder account.builder add r1z3-127.0.0.3:6022/d3 100
-  sudo swift-ring-builder container.builder add r1z3-127.0.0.3:6021/d3 100
-  sudo swift-ring-builder object.builder add r1z3-127.0.0.3:6020/d3 100
-  sudo swift-ring-builder object-1.builder add r1z3-127.0.0.3:6020/d3 100
-  sudo swift-ring-builder object-2.builder add r1z3-127.0.0.3:6020/d3 100
+  sudo swift-ring-builder account.builder add r1z3-127.0.0.3:6002/d3 100
+  sudo swift-ring-builder container.builder add r1z3-127.0.0.3:6001/d3 100
+  sudo swift-ring-builder object.builder add r1z3-127.0.0.3:6000/d3 100
+  sudo swift-ring-builder object-1.builder add r1z3-127.0.0.3:6000/d3 100
+  sudo swift-ring-builder object-2.builder add r1z3-127.0.0.3:6000/d3 100
 } &> /dev/null
 echo -ne 'Creating Builder files and adding devices [#######################](100%)\r'
 echo -ne '\n'
@@ -86,7 +86,7 @@ echo -ne '\n'
 
 echo "Setup is done. you can start the proxy server"
 sleep 1
-echo "Setup is done. you can start the proxy server"
+echo "CHANGE ACCOUNT, CONTAINER AND OBJECT SERVER IPS BEFORE PROCEEDING WITH AUTHENTICATION"
 sleep 1
 x=0
 for n in {1..50}

@@ -91,12 +91,12 @@ sleep 1
 
   sudo cp $dir/mount_drives.sh /opt/swift/bin/mount_drives.sh
   sudo cp $dir/mount_drives.service /etc/systemd/system/mount_drives.service
-  sudo chmod +x /opt/swift/bin/mount_devices.sh
+  sudo chmod +x /opt/swift/bin/mount_drives.sh
 
   sudo systemctl restart mount_drives.service
   sudo systemctl enable mount_drives.service
   sudo systemctl start mount_drives.service
-  bash $dir/mount_devices.sh
+  bash $dir/mount_drives.sh
 
 } &>> $dir/log_files.log
 
